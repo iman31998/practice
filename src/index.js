@@ -1,13 +1,27 @@
-class Shape {
-  move() {
-    console.log('shape move');
-  }
-}
-class Circle extends Shape {
-  move() {
-    super.move();
-    console.log('circle move');
-  }
-}
+class Stack {
+  count = 0;
+  item = [];
+  constructor() {
 
-const circle = new Circle();
+  }
+  peek() {
+    if (this.item.length === 0)
+      throw 'Stack is empty';
+    console.log(this.item[this.item.length - 1]);
+  }
+  pop() {
+    if (this.item.length === 0)
+      throw 'Stack is empty';
+    this.item.pop();
+    this.count--;
+  }
+  push(value) {
+    this.item.push(value);
+    this.count++;
+  }
+  get count() {
+    return this.count;
+
+  }
+}
+const stack = new Stack();
